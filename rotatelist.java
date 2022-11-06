@@ -9,27 +9,32 @@
  * }
  */
 class Solution {
-    public int length(ListNode head)
+    public int len(ListNode head)
     {
-        int i = 0;
-            ListNode temp = head;
+        int i=0;
+        ListNode temp = head;
         while(temp!=null)
         {
-            temp =temp.next;
+            temp = temp.next;
             i++;
         }
         return i;
     }
     public ListNode rotateRight(ListNode head, int k) {
-        if(head == null )
-        {
-            return null;
-        }
-        if(length(head) == 1)
+        int length = len(head);
+        int i =0;
+        if(length == 1)
         {
             return head;
         }
-        int i=0;
+        if(head == null)
+        {
+            return null;
+        }
+        if(k>length)
+        {
+            k = k%length;
+        }
         while(i<k)
         {
             ListNode temp = head;
@@ -45,6 +50,7 @@ class Solution {
 
             i++;
         }
+        System.out.println(k);
         return head;
     }
 }
