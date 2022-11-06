@@ -24,6 +24,11 @@ class Solution {
         Set<Integer> maxcash = new HashSet<>();
         rec(0,nums,l,sublist,maxcash);
         System.out.println(maxcash);
-        return 0;
+        int u = 0;
+        for(Integer i:maxcash)
+        {
+            u = Math.max(u,i);
+        }
+        return u;
     }
 }
