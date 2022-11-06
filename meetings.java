@@ -73,10 +73,7 @@ class Solution
                 mnm++;
                 e = end[i];
             }
-            else
-            {
-                continue;
-            }
+            
         }
         return mnm;
 
