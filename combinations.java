@@ -1,26 +1,35 @@
 class Solution {
-    public List<List<Integer>> combine(int n, int k) {
-
-        List<List<Integer>> ans = new ArrayList<>();
-        List<Integer> subset = new ArrayList<>();
-        helper(1,n,0,k,ans,subset);
-        return ans;
-    }
-    void helper(int start, int n, int size,int k,List<List<Integer>> ans, List<Integer> subset)
+    public void rec(int[] arr,int index,int target,List<List<Integer>> l,List<Integer> sublist)
     {
-        if(start>n){
-            if(size==k){
-                ans.add(new ArrayList(subset));
+        if(index>=arr.length)
+        {
+            if(sublist.size()==target)
+            {
+                List<Integer> o = new ArrayList<>();
+                for(int i:sublist)
+                {
+                    o.add(i);
+                }
+                l.add(o);
             }
-            return;
         }
-
-        //include
-        subset.add(start);
-        helper(start+1,n,size+1,k,ans,subset);
-
-        //exclude
-        subset.remove(subset.size()-1);
-        helper(start+1,n,size,k,ans,subset);
+        else
+        {
+            sublist.add(arr[index]);
+            rec(arr,index+1,target,l,sublist);
+            sublist.remove(sublist.size()-1);
+            rec(arr,index+1,target,l,sublist);
+        }
+    }
+    public List<List<Integer>> combine(int n, int k) {
+     int[] arr = new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i] = i+1;
+        }
+        List<List<Integer>> l = new ArrayList<>();
+        List<Integer> s = new ArrayList<>();
+        rec(arr,0,k,l,s);
+        return l;
     }
 }
