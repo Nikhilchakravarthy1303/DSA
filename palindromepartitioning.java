@@ -23,7 +23,7 @@ class Solution {
             return;
         }
         for (int i = index; i < s.length(); ++i) {
-            if (isPal(s.substring(index,i))) {
+            if (isPal(s.substring(index,i+1))) {
                 sublist.add(s.substring(index, i + 1));
                 rec(s,i+1,l,sublist);
                 sublist.remove(sublist.size() - 1);
