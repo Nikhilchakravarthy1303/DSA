@@ -43,10 +43,14 @@ class a2prog1day2{
   {
     Scanner sc = new Scanner(System.in);
     String s = sc.nextLine();
-    List<String> a = new ArrayList<>();
+    List<Character> a = new ArrayList<>();
+    List<String> s = new ArrayList<>();
     for(int i=0;i<s.length();i++)
     {
-      
+      if(s.charAt(i) == '+')
+      {
+
+      }
     }
   }
 }
