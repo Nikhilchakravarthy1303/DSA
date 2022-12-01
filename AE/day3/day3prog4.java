@@ -46,3 +46,42 @@
 // Sample Output-2:
 // ----------------
 // 4
+
+import java.util.*;
+class day3prog4{
+  public static void main(String[] args)
+  {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int[] f = new int[n];
+    for(int i=0;i<n;i++)
+    {
+      f[i] = sc.nextInt();
+    }
+    int i = 0;
+    int j = 0;
+    int count = 0;
+    int max = Integer.MIN_VALUE;
+    Set<Integer> s = new HashSet<>();
+    while(i<f.length && j<f.length)
+    {
+      s.add(f[j]);
+      if(s.size()<=2)
+      {
+        count++;
+        max = Math.max(count,max);
+        j++;
+      }
+      else
+      {
+
+        max = Math.max(max,count);
+        count = 0;
+        s = new HashSet<>();
+        j = i+1;
+        i++;
+      }
+    }
+    System.out.println(max);
+  }
+}
